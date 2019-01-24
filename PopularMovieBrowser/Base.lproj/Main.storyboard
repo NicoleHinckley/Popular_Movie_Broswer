@@ -9,37 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Popular Movies-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="FeedVC" customModule="PopularMovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LcA-e9-B7F">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92813491821289062" green="0.93566632270812988" blue="0.94194835424423218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="LcA-e9-B7F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6qN-rW-KNG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="LcA-e9-B7F" secondAttribute="bottom" id="fnW-2U-Aa7"/>
-                            <constraint firstItem="LcA-e9-B7F" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gvr-MU-Y3a"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LcA-e9-B7F" secondAttribute="trailing" id="hCL-PR-M7R"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Popular Movies" id="aFn-jF-MV9"/>
-                    <connections>
-                        <outlet property="tableView" destination="LcA-e9-B7F" id="QbW-0Q-LrM"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="762" y="116"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="uPR-2J-q42">
             <objects>
@@ -48,6 +17,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vkh-06-VqU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.34488821029663086" green="0.75346797704696655" blue="0.46754831075668335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.24175527691841125" green="0.27723404765129089" blue="0.31181403994560242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -55,12 +25,101 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="kxh-7Q-5Uf"/>
+                        <segue destination="Mc5-kX-Za1" kind="relationship" relationship="rootViewController" id="Z9P-uy-szj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lcF-j1-zll" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="76" y="115.59220389805098"/>
         </scene>
+        <!--Popular Movies-->
+        <scene sceneID="hg7-gA-RL3">
+            <objects>
+                <viewController id="Mc5-kX-Za1" customClass="FeedVC" customModule="PopularMovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mFs-QF-yF3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XBu-O8-3b9">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.24175527690000001" green="0.27723404769999999" blue="0.31181403990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieCell" rowHeight="127" id="IvR-w6-jgv" customClass="MovieCell" customModule="PopularMovieBrowser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="127"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IvR-w6-jgv" id="tMz-lc-rLB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LionKing" translatesAutoresizingMaskIntoConstraints="NO" id="gx4-NF-rqH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="127" id="8VP-4W-K39"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Lion King" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fR-w3-EEr">
+                                                    <rect key="frame" x="27" y="45" width="321" height="37"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="27"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="gx4-NF-rqH" secondAttribute="bottom" id="ADF-bW-EoK"/>
+                                                <constraint firstItem="6fR-w3-EEr" firstAttribute="centerY" secondItem="gx4-NF-rqH" secondAttribute="centerY" id="N8y-6k-Dcb"/>
+                                                <constraint firstAttribute="trailing" secondItem="gx4-NF-rqH" secondAttribute="trailing" id="NVb-LR-2hA"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6fR-w3-EEr" secondAttribute="trailing" constant="12" id="dNB-G9-QrJ"/>
+                                                <constraint firstItem="gx4-NF-rqH" firstAttribute="leading" secondItem="tMz-lc-rLB" secondAttribute="leading" id="gji-dQ-vcx"/>
+                                                <constraint firstItem="gx4-NF-rqH" firstAttribute="top" secondItem="tMz-lc-rLB" secondAttribute="top" id="pyD-NQ-011"/>
+                                                <constraint firstItem="6fR-w3-EEr" firstAttribute="leading" secondItem="tMz-lc-rLB" secondAttribute="leadingMargin" constant="12" id="wZP-jp-BnW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <connections>
+                                            <outlet property="movieTitle" destination="6fR-w3-EEr" id="qma-PN-gox"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QcD-fG-e41" firstAttribute="trailing" secondItem="XBu-O8-3b9" secondAttribute="trailing" id="5Pm-gK-aBd"/>
+                            <constraint firstItem="XBu-O8-3b9" firstAttribute="top" secondItem="QcD-fG-e41" secondAttribute="top" id="CGk-qe-h1Z"/>
+                            <constraint firstItem="XBu-O8-3b9" firstAttribute="leading" secondItem="QcD-fG-e41" secondAttribute="leading" id="hoG-y0-lw4"/>
+                            <constraint firstItem="QcD-fG-e41" firstAttribute="bottom" secondItem="XBu-O8-3b9" secondAttribute="bottom" id="iiY-jP-vS2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QcD-fG-e41"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Popular Movies" id="SzP-wd-Vg1">
+                        <barButtonItem key="backBarButtonItem" title=" " id="PTf-QA-dHG"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="XBu-O8-3b9" id="JpH-oy-IJt"/>
+                        <segue destination="gjp-YS-vys" kind="show" identifier="toMovieDetail" id="Sc9-8f-FJh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RBF-74-Jr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728.79999999999995" y="115.59220389805098"/>
+        </scene>
+        <!--Movie DetailVC-->
+        <scene sceneID="9th-oO-xd7">
+            <objects>
+                <viewController id="gjp-YS-vys" customClass="MovieDetailVC" customModule="PopularMovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="L9L-IM-hgx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.24175527690000001" green="0.27723404769999999" blue="0.31181403990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="gEU-kK-0I7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbZ-aH-scp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1457" y="116"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="LionKing" width="1022" height="470"/>
+    </resources>
 </document>
