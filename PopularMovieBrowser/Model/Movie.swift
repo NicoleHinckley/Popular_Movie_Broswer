@@ -8,11 +8,16 @@
 
 import Foundation
 
-class Movie {
-    
-    let title : String
-    
-    init(title : String) {
-       self.title = title
-    }
+
+struct PopularMoviesResult : Codable {
+    let results : [Movie]
+    let page : Int 
 }
+struct Movie : Codable {
+    let title : String
+    let id : Int
+    let poster_path : String
+    let overview : String
+}
+
+

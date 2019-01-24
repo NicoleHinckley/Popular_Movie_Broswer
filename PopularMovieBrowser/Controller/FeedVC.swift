@@ -40,15 +40,15 @@ class FeedVC: UIViewController {
     
     // MARK: -  Functions
     func fetchPopularMovies(){
-        let movie1 = Movie(title: "A Star is Born")
-        let movie2 = Movie(title: "Lion King")
-        let movie3 = Movie(title: "Harry Potter")
-        
-        movies.append(movie1)
-        movies.append(movie2)
-        movies.append(movie3)
-        
-        tableView.reloadData()
+ 
+        let engine = TMDBEngine()
+        engine.fetchPopularMovies { (movies) in
+            self.movies = movies
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+ 
+        }
     }
 }
 
