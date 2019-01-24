@@ -22,9 +22,21 @@ extension UIImageView {
             return
         }
         
+        let activityView = UIActivityIndicatorView(style: .whiteLarge)
+        self.addSubview(activityView)
+
+        activityView.translatesAutoresizingMaskIntoConstraints = false
+        activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        activityView.startAnimating()
+        
         if let url = URL(string: URLString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 
+                DispatchQueue.main.async {
+                    activityView.stopAnimating()
+                    activityView.removeFromSuperview()
+                }
                 //print("RESPONSE FROM API: \(response)")
                 if error != nil {
                     print("ERROR LOADING IMAGES FROM URL: \(error)")
@@ -43,5 +55,8 @@ extension UIImageView {
                 }
             }).resume()
         }
-    }
+
 }
+}
+    
+
