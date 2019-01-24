@@ -15,8 +15,7 @@ class FeedVC: UIViewController {
     
     // MARK: -  Globals
     var movies = [Movie]()
-    
-    
+   
     struct StorybordSegue {
         static let toMovieDetail = "toMovieDetail"
     }
@@ -47,7 +46,6 @@ class FeedVC: UIViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
- 
         }
     }
 }

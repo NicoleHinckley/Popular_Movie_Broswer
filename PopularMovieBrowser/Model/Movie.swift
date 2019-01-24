@@ -14,10 +14,15 @@ struct PopularMoviesResult : Codable {
     let page : Int 
 }
 struct Movie : Codable {
+    
+   
+    
     let title : String
     let id : Int
     let poster_path : String
     let overview : String
+    
+
 }
 
 

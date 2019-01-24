@@ -15,5 +15,17 @@ class MovieCell : UITableViewCell {
     
     func configureCell(withMovie movie : Movie) {
       movieTitle.text = movie.title
+      
+        
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "image.tmdb.org" // TODO: - Refactor
+        components.path = "/t/p/original\(movie.poster_path)"
+        
+        
+        guard let url = components.url else { return }
+        
+        movieImage.imageFromServerURL(url.absoluteString, placeHolder: nil)
+     
     }
 }
