@@ -43,7 +43,11 @@ class FeedVC: UIViewController {
         let engine = TMDBEngine()
         engine.fetchPopularMovies { (movies) in
             self.movies = movies
+            for movie in movies {
+                print( movie.title + " rating is " + String(movie.vote_average))
+            }
             DispatchQueue.main.async {
+                
                 self.tableView.reloadData()
             }
         }

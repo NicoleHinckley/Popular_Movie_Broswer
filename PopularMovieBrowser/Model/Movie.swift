@@ -20,8 +20,9 @@ struct Movie : Codable {
     let poster_path : String
     let backdrop_path : String
     let overview : String
-    
-
+    let vote_average : Double
+    let popularity : Double
 }
+
 
 
