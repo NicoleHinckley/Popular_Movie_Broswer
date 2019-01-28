@@ -16,9 +16,10 @@ class FeedVC: UIViewController {
     // MARK: -  Globals
     var movies = [Movie]()
    
-    struct StorybordSegue {
+    struct StorybordIdentifiers {
         static let toMovieDetail = "toMovieDetail"
     }
+    
     // MARK: -  Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class FeedVC: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == StorybordSegue.toMovieDetail {
+        if segue.identifier == StorybordIdentifiers.toMovieDetail {
             guard let movie = sender as? Movie else { return }
             guard let movieDetailVC = segue.destination as? MovieDetailVC else { return }
             movieDetailVC.movie = movie
@@ -39,17 +40,13 @@ class FeedVC: UIViewController {
     
     // MARK: -  Functions
     func fetchPopularMovies(){
- 
-        let engine = TMDBEngine()
-        engine.fetchPopularMovies { (movies) in
+        
+        TMDBEngine.shared.fetchPopularMovies { (movies) in
             self.movies = movies
             for movie in movies {
                 print( movie.title + " rating is " + String(movie.vote_average))
             }
-            DispatchQueue.main.async {
-                
                 self.tableView.reloadData()
-            }
         }
     }
 }
@@ -71,6 +68,6 @@ extension FeedVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let movie = movies[indexPath.row]
-        self.performSegue(withIdentifier: StorybordSegue.toMovieDetail, sender: movie)
+        self.performSegue(withIdentifier: StorybordIdentifiers.toMovieDetail, sender: movie)
     }
 }

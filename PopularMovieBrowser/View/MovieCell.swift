@@ -22,12 +22,9 @@ class MovieCell : UITableViewCell {
         components.host = "image.tmdb.org" // TODO: - Refactor
         components.path = "/t/p/original\(movie.backdrop_path)"
         
-        
         guard let url = components.url else { return }
     
         movieImage.imageFromServerURL(url.absoluteString, placeHolder: nil)
-        let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.startAnimating()
-    //    self.movieImage.addSubview(activityIndicator)
+
     }
 }

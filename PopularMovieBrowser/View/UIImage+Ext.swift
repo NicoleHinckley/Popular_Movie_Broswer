@@ -36,7 +36,6 @@ extension UIImageView {
                     activityView.stopAnimating()
                     activityView.removeFromSuperview()
                 }
-                //print("RESPONSE FROM API: \(response)")
                 if error != nil {
                     print("ERROR LOADING IMAGES FROM URL: \(error)")
                     DispatchQueue.main.async {

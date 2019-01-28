@@ -17,6 +17,7 @@
 		AAD2448D21F92B7B00B1EC4F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2448C21F92B7B00B1EC4F /* Movie.swift */; };
 		AAD2449021F94A2600B1EC4F /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2448F21F94A2600B1EC4F /* MovieDetailVC.swift */; };
 		AAD2449221F96D8100B1EC4F /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449121F96D8100B1EC4F /* UIImage+Ext.swift */; };
+		AAD2449421FE8F1C00B1EC4F /* NetworkingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449321FE8F1C00B1EC4F /* NetworkingEngine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AAD2448C21F92B7B00B1EC4F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		AAD2448F21F94A2600B1EC4F /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
 		AAD2449121F96D8100B1EC4F /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		AAD2449321FE8F1C00B1EC4F /* NetworkingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEngine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,6 @@
 				AAD2447B21F91ADE00B1EC4F /* Assets.xcassets */,
 				AAD2447D21F91ADE00B1EC4F /* LaunchScreen.storyboard */,
 				AAD2448021F91ADE00B1EC4F /* Info.plist */,
-				AAD2448621F91F2400B1EC4F /* TMDBEngine.swift */,
 			);
 			path = PopularMovieBrowser;
 			sourceTree = "<group>";
@@ -90,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				AAD2448C21F92B7B00B1EC4F /* Movie.swift */,
+				AAD2448621F91F2400B1EC4F /* TMDBEngine.swift */,
+				AAD2449321FE8F1C00B1EC4F /* NetworkingEngine.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				AAD2448721F91F2400B1EC4F /* TMDBEngine.swift in Sources */,
 				AAD2449021F94A2600B1EC4F /* MovieDetailVC.swift in Sources */,
 				AAD2448D21F92B7B00B1EC4F /* Movie.swift in Sources */,
+				AAD2449421FE8F1C00B1EC4F /* NetworkingEngine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
