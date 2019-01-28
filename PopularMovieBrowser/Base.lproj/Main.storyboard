@@ -51,7 +51,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LionKing" translatesAutoresizingMaskIntoConstraints="NO" id="gx4-NF-rqH">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultMovieImage" translatesAutoresizingMaskIntoConstraints="NO" id="gx4-NF-rqH">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="127" id="8VP-4W-K39"/>
@@ -177,5 +177,6 @@
     </scenes>
     <resources>
         <image name="LionKing" width="1022" height="470"/>
+        <image name="defaultMovieImage" width="500" height="500"/>
     </resources>
 </document>

@@ -11,7 +11,8 @@ import Foundation
 
 struct PopularMoviesResult : Codable {
     let results : [Movie]
-    let page : Int 
+    let page : Int
+    let total_results : Int
 }
 
 struct Movie : Codable {

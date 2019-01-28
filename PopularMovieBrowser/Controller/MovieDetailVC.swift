@@ -11,7 +11,6 @@ import UIKit
 class MovieDetailVC : UIViewController {
     
     // MARK: -  Outlets
-    
     @IBOutlet weak var movieImage : UIImageView!
     @IBOutlet weak var movieDescription : UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
@@ -43,7 +42,7 @@ class MovieDetailVC : UIViewController {
         voteCountLabel.text = "Vote count: \(String(movie.voteCount))"
         
         guard let url = TMDBEngine.shared.movieBackdropImageURL(for: movie) else { return }
-        movieImage.imageFromServerURL(url.absoluteString, placeHolder: nil)
+        movieImage.imageFromServerURL(url.absoluteString, placeHolder: #imageLiteral(resourceName: "defaultMovieImage"))
     }
 }
 

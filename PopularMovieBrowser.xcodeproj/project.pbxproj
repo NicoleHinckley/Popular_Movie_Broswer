@@ -68,9 +68,9 @@
 		AAD2447321F91ADC00B1EC4F /* PopularMovieBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				AAD2448E21F94A1300B1EC4F /* Controller */,
 				AAD2448B21F92B7000B1EC4F /* Model */,
 				AAD2448821F92AE300B1EC4F /* View */,
+				AAD2448E21F94A1300B1EC4F /* Controller */,
 				AAD2447421F91ADC00B1EC4F /* AppDelegate.swift */,
 				AAD2447821F91ADC00B1EC4F /* Main.storyboard */,
 				AAD2447B21F91ADE00B1EC4F /* Assets.xcassets */,
