@@ -11,7 +11,7 @@ import UIKit
 class MovieCell : UITableViewCell {
     
     @IBOutlet weak var movieTitle : UILabel!
-    @IBOutlet weak var movieImage : UIImageView!
+    @IBOutlet weak var movieImage : DownloadableImageView!
     
     var movie : Movie! {
         didSet{
@@ -23,6 +23,7 @@ class MovieCell : UITableViewCell {
         movieTitle.text = movie.title
         movieImage.image = nil
         guard let url = TMDBEngine.shared.movieBackdropImageURL(for: movie) else { return }
+        movieImage.imageURL = url.absoluteString
         movieImage.imageFromServerURL(url.absoluteString, placeHolder: #imageLiteral(resourceName: "defaultMovieImage"))
     }
 }

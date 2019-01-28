@@ -22,7 +22,7 @@ class TMDBEngine {
      let MOVIE_API_HOST = "api.themoviedb.org"
      let MOVIE_IMAGE_API_HOST = "image.tmdb.org"
      let POPULAR_MOVIE_PATH = "/3/movie/popular"
-     let MOVIE_IMAGE_PATH = "/t/p/original"
+     let MOVIE_IMAGE_PATH = "/t/p/w300"
      let MOVIE_GENRE_PATH = "/3/genre/movie/list"
     
     struct TMDBQueryKey {

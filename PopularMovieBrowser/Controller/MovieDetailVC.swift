@@ -11,7 +11,7 @@ import UIKit
 class MovieDetailVC : UIViewController {
     
     // MARK: -  Outlets
-    @IBOutlet weak var movieImage : UIImageView!
+    @IBOutlet weak var movieImage : DownloadableImageView!
     @IBOutlet weak var movieDescription : UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var voteCountLabel: UILabel!

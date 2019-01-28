@@ -1,20 +1,20 @@
 //
-//  UIImage+Ext.swift
+//  NHImageView.swift
 //  PopularMovieBrowser
 //
-//  Created by Nicole Hinckley on 1/23/19.
+//  Created by Nicole Hinckley on 1/28/19.
 //  Copyright © 2019 Nicole Hinckley. All rights reserved.
 //
 
 import UIKit
 
-
 let imageCache = NSCache<NSString, UIImage>()
 
-extension UIImageView {
+class DownloadableImageView : UIImageView {
+    var imageURL : String!
     
     func imageFromServerURL(_ URLString: String?, placeHolder: UIImage?) {
-   
+        
         guard let urlString = URLString else {
             self.image = placeHolder
             return
@@ -29,7 +29,7 @@ extension UIImageView {
         
         let activityView = UIActivityIndicatorView(style: .whiteLarge)
         self.addSubview(activityView)
-
+        
         activityView.translatesAutoresizingMaskIntoConstraints = false
         activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
@@ -49,20 +49,19 @@ extension UIImageView {
                     }
                     return
                 }
-                
-                DispatchQueue.main.async {
-                    print("DOWNLOADED IMAGE")
+            
                     if let data = data {
+                        if self.imageURL == url.absoluteString {
                         if let downloadedImage = UIImage(data: data) {
                             imageCache.setObject(downloadedImage, forKey: NSString(string: urlString))
+                            DispatchQueue.main.async {
                             self.image = downloadedImage
+                            }
                         }
                     }
                 }
             }).resume()
         }
-
+        
+    }
 }
-}
-    
-

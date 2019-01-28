@@ -58,8 +58,7 @@ class FeedVC: UIViewController {
             self.movies = popularMoviesResult.results // TODO: - Rename to movies
             self.tableView.reloadData()
             } else {
-              
-               self.movies.append(contentsOf: popularMoviesResult.results)
+                self.movies.append(contentsOf: popularMoviesResult.results)
                 self.tableView.reloadData()
             }
         }
@@ -67,10 +66,8 @@ class FeedVC: UIViewController {
     
     func loadMoreMovies(){
         if isCurrentlyLoadingNewMovies { return }
-        currentPage = currentPage + 1
+         currentPage = currentPage + 1
          fetchPopularMovies()
-        print("Should load some more movies!")
-        
     }
 }
 
@@ -84,7 +81,8 @@ extension FeedVC : UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StorybordIdentifiers.movieCell, for: indexPath) as? MovieCell else { return UITableViewCell()}
-
+        cell.layer.shouldRasterize = true
+        cell.layer.rasterizationScale = UIScreen.main.scale
         if let moviesResult = popularMoviesResult {
             
             if indexPath.row == movies.count - 1 {
@@ -100,7 +98,6 @@ extension FeedVC : UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
         let movie = movies[indexPath.row]
         self.performSegue(withIdentifier: StorybordIdentifiers.toMovieDetailSegue, sender: movie)
     }

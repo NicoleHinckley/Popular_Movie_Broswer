@@ -42,7 +42,6 @@ class NetworkingEngine {
                         let model = try jsonDecoder.decode(T.self, from: jsonData)
                         completion(model, nil)
                     } catch {
-                        let model = T.self
                        completion(nil, error)
                     }
                 }
