@@ -13,17 +13,9 @@ class MovieCell : UITableViewCell {
     @IBOutlet weak var movieTitle : UILabel!
     @IBOutlet weak var movieImage : UIImageView!
     
-    
     func configureCell(with movie : Movie) {
-      movieTitle.text = movie.title
-      
-        
-        guard let movieBackdropPath = movie.backdropPath else { return } // TODO: - Set placeholder
-        
-        
+        movieTitle.text = movie.title
         guard let url = TMDBEngine.shared.movieBackdropImageURL(for: movie) else { return }
-     
         movieImage.imageFromServerURL(url.absoluteString, placeHolder: nil)
-
     }
 }

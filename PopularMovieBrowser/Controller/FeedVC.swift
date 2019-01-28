@@ -35,7 +35,10 @@ class FeedVC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == StorybordIdentifiers.toMovieDetailSegue {
-            guard let movie = sender as? Movie else { return } // TODO: - Show an error
+            guard let movie = sender as? Movie else {
+             self.alert(message: "Cannot show details for this movie!")
+                return
+            }
             guard let movieDetailVC = segue.destination as? MovieDetailVC else { return }
             movieDetailVC.movie = movie
         }

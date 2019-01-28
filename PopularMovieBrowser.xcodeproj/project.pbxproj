@@ -18,6 +18,7 @@
 		AAD2449021F94A2600B1EC4F /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2448F21F94A2600B1EC4F /* MovieDetailVC.swift */; };
 		AAD2449221F96D8100B1EC4F /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449121F96D8100B1EC4F /* UIImage+Ext.swift */; };
 		AAD2449421FE8F1C00B1EC4F /* NetworkingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449321FE8F1C00B1EC4F /* NetworkingEngine.swift */; };
+		AAD2449621FEF2D900B1EC4F /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449521FEF2D900B1EC4F /* UIViewController+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		AAD2448F21F94A2600B1EC4F /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
 		AAD2449121F96D8100B1EC4F /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
 		AAD2449321FE8F1C00B1EC4F /* NetworkingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEngine.swift; sourceTree = "<group>"; };
+		AAD2449521FEF2D900B1EC4F /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			children = (
 				AAD2448921F92AF100B1EC4F /* MovieCell.swift */,
 				AAD2449121F96D8100B1EC4F /* UIImage+Ext.swift */,
+				AAD2449521FEF2D900B1EC4F /* UIViewController+Ext.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				AAD2449221F96D8100B1EC4F /* UIImage+Ext.swift in Sources */,
 				AAD2447721F91ADC00B1EC4F /* FeedVC.swift in Sources */,
 				AAD2447521F91ADC00B1EC4F /* AppDelegate.swift in Sources */,
+				AAD2449621FEF2D900B1EC4F /* UIViewController+Ext.swift in Sources */,
 				AAD2448A21F92AF100B1EC4F /* MovieCell.swift in Sources */,
 				AAD2448721F91F2400B1EC4F /* TMDBEngine.swift in Sources */,
 				AAD2449021F94A2600B1EC4F /* MovieDetailVC.swift in Sources */,

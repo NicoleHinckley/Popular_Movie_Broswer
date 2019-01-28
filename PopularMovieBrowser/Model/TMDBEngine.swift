@@ -24,7 +24,6 @@ class TMDBEngine {
      let MOVIE_IMAGE_PATH = "/t/p/original"
      let MOVIE_GENRE_PATH = "/3/genre/movie/list"
     
-   
     struct TMDBQueryKey {
         static let API_KEY = "api_key"
     }
@@ -47,21 +46,35 @@ class TMDBEngine {
     }
     
     func fetchPopularMovies(completion : @escaping ([Movie]) -> ()){
-        
         guard let url = popularMoviesURL else { return }
-        NetworkingEngine.shared.downloadJSON(from: url) { (popularMovies : PopularMoviesResult, error) in
-            guard error == nil else { return }
-            completion(popularMovies.results)
+        NetworkingEngine.shared.downloadJSON(from: url) { (popularMovies : PopularMoviesResult?, error) in
+            if let err = error {
+                print("ERROR " + err.localizedDescription)
+                return
+            }
+            
+            //Can this ever happen?
+            if popularMovies == nil {
+              completion([])
+            } else {
+              completion(popularMovies!.results)
+            }
         }
     }
     
     func fetchGenres(){
-        
         guard let url = genresURL else { return }
-        NetworkingEngine.shared.downloadJSON(from: url) { (genresResult : GenresResult, error) in
-            guard error == nil else {
-                return }
-         self.movieGenres = genresResult.genres
+        NetworkingEngine.shared.downloadJSON(from: url) { (genresResult : GenresResult?, error) in
+            if let err = error {
+                print("ERROR " + err.localizedDescription)
+                return
+            }
+            if genresResult == nil {
+                //Handle this
+            } else {
+                self.movieGenres = genresResult!.genres
+            }
+       
         }
     }
 }

@@ -23,7 +23,6 @@ extension UIImageView {
         self.image = nil
         if let cachedImage = imageCache.object(forKey: NSString(string: urlString)) {
             self.image = cachedImage
-            print("PULLING FROM CACHE")
             return
         }
         
@@ -42,15 +41,15 @@ extension UIImageView {
                     activityView.stopAnimating()
                     activityView.removeFromSuperview()
                 }
-                if error != nil {
-                    print("ERROR LOADING IMAGES FROM URL: \(error)")
+                if let error = error {
+                    print("ERROR LOADING IMAGES FROM URL: " + error.localizedDescription)
                     DispatchQueue.main.async {
                         self.image = placeHolder
                     }
                     return
                 }
+                
                 DispatchQueue.main.async {
-                    print("DOWNLOADED IMAGE")
                     if let data = data {
                         if let downloadedImage = UIImage(data: data) {
                             imageCache.setObject(downloadedImage, forKey: NSString(string: urlString))
