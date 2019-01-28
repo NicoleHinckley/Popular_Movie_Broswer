@@ -13,32 +13,55 @@ class TMDBEngine {
     private init(){}
     static let shared = TMDBEngine()
     
-    fileprivate let API_KEY = "21b84234aecaeadd5515637bc22d475e"
-    fileprivate let API_SCHEME = "https"
-    fileprivate let API_HOST = "https://api.themoviedb.org"
-    fileprivate let POPULAR_MOVIE_BASE = "/3/movie/popular"
- 
+    var movieGenres : [Genre] = []
+    
+    // TODO: - Rename these
+     let TMBD_API_KEY = "21b84234aecaeadd5515637bc22d475e"
+     let API_SCHEME = "https"
+     let MOVIE_API_HOST = "api.themoviedb.org"
+     let MOVIE_IMAGE_API_HOST = "image.tmdb.org"
+     let POPULAR_MOVIE_PATH = "/3/movie/popular"
+     let MOVIE_IMAGE_PATH = "/t/p/original"
+     let MOVIE_GENRE_PATH = "/3/genre/movie/list"
+    
+   
     struct TMDBQueryKey {
         static let API_KEY = "api_key"
     }
     
+     lazy var popularMoviesURL : URL? = {
+        let url = NetworkingEngine.shared.createURL(scheme: API_SCHEME, host: MOVIE_API_HOST, path: POPULAR_MOVIE_PATH, queryItems: [URLQueryItem(name: TMDBQueryKey.API_KEY, value: TMBD_API_KEY)])
+        return url
+    }()
+    
+    lazy var genresURL : URL? = {
+        let url = NetworkingEngine.shared.createURL(scheme: API_SCHEME, host: MOVIE_API_HOST, path: MOVIE_GENRE_PATH, queryItems: [URLQueryItem(name: TMDBQueryKey.API_KEY, value: TMBD_API_KEY)])
+        return url
+    }()
+    
+    
+    func movieBackdropImageURL(for movie : Movie) -> URL? {
+        guard let path = movie.backdropPath else { return nil }
+        guard let url = NetworkingEngine.shared.createURL(scheme: API_SCHEME, host: MOVIE_IMAGE_API_HOST, path: MOVIE_IMAGE_PATH + path, queryItems: []) else { return nil }
+        return url
+    }
+    
     func fetchPopularMovies(completion : @escaping ([Movie]) -> ()){
         
-        var components = URLComponents()
-        components.scheme = API_SCHEME
-        components.host = API_HOST
-        components.path = POPULAR_MOVIE_BASE
-        components.queryItems = [
-            URLQueryItem(name: TMDBQueryKey.API_KEY, value: API_KEY)
-        ]
-        
-        guard let url = components.url else { return }
-    
-        NetworkingEngine.shared.downloadPopularMoviesJSON(from: url) { (popularMovies : PopularMoviesResult, error) in
+        guard let url = popularMoviesURL else { return }
+        NetworkingEngine.shared.downloadJSON(from: url) { (popularMovies : PopularMoviesResult, error) in
             guard error == nil else { return }
             completion(popularMovies.results)
         }
-      
+    }
+    
+    func fetchGenres(){
         
+        guard let url = genresURL else { return }
+        NetworkingEngine.shared.downloadJSON(from: url) { (genresResult : GenresResult, error) in
+            guard error == nil else {
+                return }
+         self.movieGenres = genresResult.genres
+        }
     }
 }

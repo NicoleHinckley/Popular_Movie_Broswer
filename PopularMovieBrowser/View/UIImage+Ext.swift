@@ -13,11 +13,17 @@ let imageCache = NSCache<NSString, UIImage>()
 
 extension UIImageView {
     
-    func imageFromServerURL(_ URLString: String, placeHolder: UIImage?) {
+    func imageFromServerURL(_ URLString: String?, placeHolder: UIImage?) {
+   
+        guard let urlString = URLString else {
+            self.image = placeHolder
+            return
+        }
         
         self.image = nil
-        if let cachedImage = imageCache.object(forKey: NSString(string: URLString)) {
+        if let cachedImage = imageCache.object(forKey: NSString(string: urlString)) {
             self.image = cachedImage
+            print("PULLING FROM CACHE")
             return
         }
         
@@ -29,7 +35,7 @@ extension UIImageView {
         activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         activityView.startAnimating()
         
-        if let url = URL(string: URLString) {
+        if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 
                 DispatchQueue.main.async {
@@ -44,9 +50,10 @@ extension UIImageView {
                     return
                 }
                 DispatchQueue.main.async {
+                    print("DOWNLOADED IMAGE")
                     if let data = data {
                         if let downloadedImage = UIImage(data: data) {
-                            imageCache.setObject(downloadedImage, forKey: NSString(string: URLString))
+                            imageCache.setObject(downloadedImage, forKey: NSString(string: urlString))
                             self.image = downloadedImage
                         }
                     }

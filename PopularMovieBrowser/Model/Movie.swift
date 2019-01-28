@@ -13,16 +13,39 @@ struct PopularMoviesResult : Codable {
     let results : [Movie]
     let page : Int 
 }
+
 struct Movie : Codable {
 
     let title : String
     let id : Int
-    let poster_path : String
-    let backdrop_path : String
+    let posterPath : String?
+    let backdropPath : String?
     let overview : String
-    let vote_average : Double
+    let voteAverage : Double
     let popularity : Double
+    let genreIDs : [Int]
+    let voteCount : Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case title
+        case id
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case overview
+        case voteAverage = "vote_average"
+        case popularity
+        case genreIDs = "genre_ids"
+        case voteCount = "vote_count"
+    }
 }
 
+struct GenresResult : Codable {
+    let genres :  [Genre]
+}
+
+struct Genre : Codable {
+    let name : String
+    let id : Int
+}
 
 

@@ -13,17 +13,16 @@ class MovieCell : UITableViewCell {
     @IBOutlet weak var movieTitle : UILabel!
     @IBOutlet weak var movieImage : UIImageView!
     
-    func configureCell(withMovie movie : Movie) {
+    
+    func configureCell(with movie : Movie) {
       movieTitle.text = movie.title
       
         
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = "image.tmdb.org" // TODO: - Refactor
-        components.path = "/t/p/original\(movie.backdrop_path)"
+        guard let movieBackdropPath = movie.backdropPath else { return } // TODO: - Set placeholder
         
-        guard let url = components.url else { return }
-    
+        
+        guard let url = TMDBEngine.shared.movieBackdropImageURL(for: movie) else { return }
+     
         movieImage.imageFromServerURL(url.absoluteString, placeHolder: nil)
 
     }
