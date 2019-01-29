@@ -16,7 +16,6 @@ struct PopularMoviesResult : Codable {
 }
 
 struct Movie : Codable {
-
     let title : String
     let id : Int
     let posterPath : String?

@@ -21,7 +21,6 @@ class MovieCell : UITableViewCell {
     
     func configureCell(with movie : Movie) {
         movieTitle.text = movie.title
-        movieImage.image = nil
         guard let url = TMDBEngine.shared.movieBackdropImageURL(for: movie) else { return }
         movieImage.imageFromServerURL(url.absoluteString, placeHolder: #imageLiteral(resourceName: "defaultMovieImage"))
     }

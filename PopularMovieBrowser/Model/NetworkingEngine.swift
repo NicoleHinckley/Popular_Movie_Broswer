@@ -15,7 +15,6 @@ class NetworkingEngine {
     
     func createURL(scheme : String, host : String, path : String, queryItems : [URLQueryItem]) -> URL? {
         
-        
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
@@ -29,13 +28,15 @@ class NetworkingEngine {
         return url
     }
     
+    
     func downloadJSON<T : Decodable>(from url : URL, completion : @escaping (T?, _ error : Error?) -> ()) {
  
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             DispatchQueue.main.async {
                 if let error = error {
-                    fatalError("Error with network request : " + error.localizedDescription)
+                    print("Error with network request : " + error.localizedDescription)
+                    return
                 } else if let jsonData = data {
                     do {
                         let jsonDecoder = JSONDecoder()
