@@ -23,7 +23,6 @@ class MovieCell : UITableViewCell {
         movieTitle.text = movie.title
         movieImage.image = nil
         guard let url = TMDBEngine.shared.movieBackdropImageURL(for: movie) else { return }
-        movieImage.imageURL = url.absoluteString
         movieImage.imageFromServerURL(url.absoluteString, placeHolder: #imageLiteral(resourceName: "defaultMovieImage"))
     }
 }

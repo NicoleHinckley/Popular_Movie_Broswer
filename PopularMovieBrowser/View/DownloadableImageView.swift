@@ -20,6 +20,7 @@ class DownloadableImageView : UIImageView {
             self.image = placeHolder
             return
         }
+        self.imageURL = urlString
         
         self.image = nil
         if let cachedImage = imageCache.object(forKey: NSString(string: urlString)) {
