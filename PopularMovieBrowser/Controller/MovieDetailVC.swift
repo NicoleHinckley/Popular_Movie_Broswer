@@ -27,7 +27,12 @@ class MovieDetailVC : UIViewController {
     
     func configureView(with movie : Movie) {
         self.title = movie.title
-        self.movieDescription.text = movie.overview
+        
+        if movie.overview.count == 0 {
+            self.movieDescription.text = "No overview found for this movie"
+        } else {
+            self.movieDescription.text = movie.overview
+        }
         
         // TODO: -  Clean this up
         let genres = TMDBEngine.shared.movieGenres

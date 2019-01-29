@@ -12,6 +12,7 @@ let imageCache = NSCache<NSString, UIImage>()
 
 class DownloadableImageView : UIImageView {
     var imageURL : String!
+  
     
     func imageFromServerURL(_ URLString: String?, placeHolder: UIImage?) {
         
@@ -26,22 +27,10 @@ class DownloadableImageView : UIImageView {
             
             return
         }
-        
-        let activityView = UIActivityIndicatorView(style: .whiteLarge)
-        self.addSubview(activityView)
-        
-        activityView.translatesAutoresizingMaskIntoConstraints = false
-        activityView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        activityView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        activityView.startAnimating()
-        
+    
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 
-                DispatchQueue.main.async {
-                    activityView.stopAnimating()
-                    activityView.removeFromSuperview()
-                }
                 if let error = error {
                     print("ERROR LOADING IMAGES FROM URL: " + error.localizedDescription)
                     DispatchQueue.main.async {
