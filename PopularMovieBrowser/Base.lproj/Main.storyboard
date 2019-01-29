@@ -91,7 +91,7 @@
                             <constraint firstItem="QcD-fG-e41" firstAttribute="trailing" secondItem="XBu-O8-3b9" secondAttribute="trailing" id="5Pm-gK-aBd"/>
                             <constraint firstItem="XBu-O8-3b9" firstAttribute="top" secondItem="QcD-fG-e41" secondAttribute="top" id="CGk-qe-h1Z"/>
                             <constraint firstItem="XBu-O8-3b9" firstAttribute="leading" secondItem="QcD-fG-e41" secondAttribute="leading" id="hoG-y0-lw4"/>
-                            <constraint firstItem="QcD-fG-e41" firstAttribute="bottom" secondItem="XBu-O8-3b9" secondAttribute="bottom" id="iiY-jP-vS2"/>
+                            <constraint firstAttribute="bottom" secondItem="XBu-O8-3b9" secondAttribute="bottom" id="iiY-jP-vS2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QcD-fG-e41"/>
                     </view>

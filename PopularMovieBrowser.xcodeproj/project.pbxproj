@@ -16,7 +16,6 @@
 		AAD2448A21F92AF100B1EC4F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2448921F92AF100B1EC4F /* MovieCell.swift */; };
 		AAD2448D21F92B7B00B1EC4F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2448C21F92B7B00B1EC4F /* Movie.swift */; };
 		AAD2449021F94A2600B1EC4F /* MovieDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2448F21F94A2600B1EC4F /* MovieDetailVC.swift */; };
-		AAD2449221F96D8100B1EC4F /* UIImageView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449121F96D8100B1EC4F /* UIImageView+Ext.swift */; };
 		AAD2449421FE8F1C00B1EC4F /* NetworkingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449321FE8F1C00B1EC4F /* NetworkingEngine.swift */; };
 		AAD2449621FEF2D900B1EC4F /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449521FEF2D900B1EC4F /* UIViewController+Ext.swift */; };
 		AAD2449821FF91F300B1EC4F /* DownloadableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD2449721FF91F300B1EC4F /* DownloadableImageView.swift */; };
@@ -34,7 +33,6 @@
 		AAD2448921F92AF100B1EC4F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		AAD2448C21F92B7B00B1EC4F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		AAD2448F21F94A2600B1EC4F /* MovieDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVC.swift; sourceTree = "<group>"; };
-		AAD2449121F96D8100B1EC4F /* UIImageView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Ext.swift"; sourceTree = "<group>"; };
 		AAD2449321FE8F1C00B1EC4F /* NetworkingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingEngine.swift; sourceTree = "<group>"; };
 		AAD2449521FEF2D900B1EC4F /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		AAD2449721FF91F300B1EC4F /* DownloadableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadableImageView.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				AAD2449521FEF2D900B1EC4F /* UIViewController+Ext.swift */,
-				AAD2449121F96D8100B1EC4F /* UIImageView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -192,7 +189,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAD2449821FF91F300B1EC4F /* DownloadableImageView.swift in Sources */,
-				AAD2449221F96D8100B1EC4F /* UIImageView+Ext.swift in Sources */,
 				AAD2447721F91ADC00B1EC4F /* FeedVC.swift in Sources */,
 				AAD2447521F91ADC00B1EC4F /* AppDelegate.swift in Sources */,
 				AAD2449621FEF2D900B1EC4F /* UIViewController+Ext.swift in Sources */,

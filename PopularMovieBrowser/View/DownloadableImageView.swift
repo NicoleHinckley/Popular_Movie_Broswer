@@ -11,8 +11,9 @@ import UIKit
 let imageCache = NSCache<NSString, UIImage>()
 
 class DownloadableImageView : UIImageView {
-    var imageURL : String!
-  
+ 
+    var imageURL : String?
+    var activityIndicator : UIActivityIndicatorView!
     
     func imageFromServerURL(_ URLString: String?, placeHolder: UIImage?) {
         
@@ -28,27 +29,37 @@ class DownloadableImageView : UIImageView {
             
             return
         }
+        
+        if self.activityIndicator == nil {
+            self.activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
+            activityIndicator.center = self.center
+            self.addSubview(activityIndicator)
+            activityIndicator.hidesWhenStopped = true
+        
+        }
     
+        activityIndicator.startAnimating()
+        
         if let url = URL(string: urlString) {
             URLSession.shared.dataTask(with: url, completionHandler: { (data, response, error) in
                 
+                if self.imageURL != url.absoluteString { return }
+                
                 if let error = error {
-                    print("ERROR LOADING IMAGES FROM URL: " + error.localizedDescription)
-                    DispatchQueue.main.async {
-                        self.image = placeHolder
-                    }
-                    return
+                    print("ERROR LOADING IMAGES FROM: " + error.localizedDescription)
                 }
             
-                    if let data = data {
-                        if self.imageURL == url.absoluteString {
-                        if let downloadedImage = UIImage(data: data) {
-                            imageCache.setObject(downloadedImage, forKey: NSString(string: urlString))
-                            DispatchQueue.main.async {
-                            self.image = downloadedImage
-                            }
-                        }
-                    }
+                
+                var newImage = placeHolder
+                
+                if let data = data , let downloadedImage = UIImage(data : data){
+                    imageCache.setObject(downloadedImage, forKey: NSString(string: urlString))
+                       newImage = downloadedImage
+                }
+                
+                DispatchQueue.main.async {
+                    self.image = newImage
+                    self.activityIndicator.stopAnimating()
                 }
             }).resume()
         }
